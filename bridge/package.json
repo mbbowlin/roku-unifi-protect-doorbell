@@ -1,0 +1,14 @@
+{
+  "name": "unifi-protect-roku-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local RTSPS-to-HLS bridge for Roku playback of UniFi Protect streams.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+

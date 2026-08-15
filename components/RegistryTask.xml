@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="RegistryTask" extends="Task">
+    <interface>
+        <field id="command" type="string" />
+        <field id="value" type="string" />
+        <field id="result" type="assocarray" alwaysNotify="true" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/RegistryTask.brs" />
+</component>
+

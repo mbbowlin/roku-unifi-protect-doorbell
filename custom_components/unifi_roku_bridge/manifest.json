@@ -1,0 +1,13 @@
+{
+  "domain": "unifi_roku_bridge",
+  "name": "UniFi Roku Bridge",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/local/unifi-roku-bridge",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "1.0.0"
+}
+

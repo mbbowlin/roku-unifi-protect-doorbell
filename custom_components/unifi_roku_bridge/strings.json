@@ -1,0 +1,48 @@
+{
+  "title": "UniFi Roku Bridge",
+  "config": {
+    "step": {
+      "user": {
+        "title": "UniFi Protect stream",
+        "description": "Create an HLS bridge endpoint for a UniFi Protect RTSPS stream.",
+        "data": {
+          "name": "Name",
+          "host": "UniFi Protect host or IP",
+          "port": "RTSPS port",
+          "stream_token": "Stream token or full RTSPS URL",
+          "enable_srtp": "Append enableSrtp when stream token has no query string"
+        }
+      }
+    },
+    "error": {
+      "required": "This field is required."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Bridge options",
+        "description": "Changes restart the bridge and keep the same Roku HLS URL.",
+        "data": {
+          "host": "UniFi Protect host or IP",
+          "port": "RTSPS port",
+          "stream_token": "Stream token or full RTSPS URL",
+          "enable_srtp": "Append enableSrtp when stream token has no query string",
+          "ffmpeg_bin": "ffmpeg executable path",
+          "transcode": "Transcode to Roku-compatible H.264",
+          "keep_audio": "Keep audio",
+          "segment_seconds": "HLS segment seconds",
+          "list_size": "HLS playlist segment count",
+          "max_width": "Maximum video width",
+          "max_height": "Maximum video height",
+          "rtsp_transport": "RTSP transport",
+          "tls_verify": "Verify UniFi TLS certificate",
+          "x264_preset": "x264 preset",
+          "h264_level": "H.264 level",
+          "playlist_wait_ms": "Playlist startup wait milliseconds",
+          "idle_timeout": "Stop ffmpeg after idle seconds"
+        }
+      }
+    }
+  }
+}

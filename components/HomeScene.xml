@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="HomeScene" extends="Scene">
+    <script type="text/brightscript" uri="pkg:/source/config.brs" />
+    <script type="text/brightscript" uri="pkg:/components/HomeScene.brs" />
+
+    <children>
+        <Rectangle
+            id="background"
+            width="1920"
+            height="1080"
+            color="#0B0F14" />
+
+        <Video
+            id="video"
+            width="1320"
+            height="1080"
+            translation="[600,0]" />
+
+        <Rectangle
+            id="overlay"
+            width="600"
+            height="1080"
+            color="#000000"
+            opacity="0.88" />
+
+        <Group id="panel" translation="[40,54]">
+            <Timer
+                id="exitTimer"
+                repeat="false"
+                duration="180" />
+
+            <Label
+                id="title"
+                width="520"
+                height="48"
+                font="font:MediumBoldSystemFont"
+                color="#FFFFFF" />
+
+            <Label
+                id="status"
+                translation="[0,70]"
+                width="520"
+                height="38"
+                font="font:SmallBoldSystemFont"
+                color="#B7E0C2" />
+
+            <Label
+                id="details"
+                translation="[0,124]"
+                width="520"
+                height="82"
+                wrap="true"
+                font="font:SmallSystemFont"
+                color="#D8DEE9" />
+
+            <Label
+                id="urlHeading"
+                translation="[0,244]"
+                width="520"
+                height="30"
+                font="font:SmallBoldSystemFont"
+                color="#8FA3B8"
+                text="HLS URL" />
+
+            <Label
+                id="urlValue"
+                translation="[0,286]"
+                width="520"
+                height="134"
+                wrap="true"
+                font="font:SmallSystemFont"
+                color="#FFFFFF" />
+
+            <Group id="menu" translation="[0,462]">
+                <Group id="row0" translation="[0,0]">
+                    <Rectangle id="row0Bg" width="500" height="54" color="#1D2733" opacity="0.72" />
+                    <Label id="row0Text" translation="[18,13]" width="464" height="30" font="font:SmallBoldSystemFont" color="#FFFFFF" text="Play stream" />
+                </Group>
+                <Group id="row1" translation="[0,66]">
+                    <Rectangle id="row1Bg" width="500" height="54" color="#1D2733" opacity="0.72" />
+                    <Label id="row1Text" translation="[18,13]" width="464" height="30" font="font:SmallBoldSystemFont" color="#FFFFFF" text="Edit HLS URL" />
+                </Group>
+                <Group id="row2" translation="[0,132]">
+                    <Rectangle id="row2Bg" width="500" height="54" color="#1D2733" opacity="0.72" />
+                    <Label id="row2Text" translation="[18,13]" width="464" height="30" font="font:SmallBoldSystemFont" color="#FFFFFF" text="Use packaged default" />
+                </Group>
+                <Group id="row3" translation="[0,198]">
+                    <Rectangle id="row3Bg" width="500" height="54" color="#1D2733" opacity="0.72" />
+                    <Label id="row3Text" translation="[18,13]" width="464" height="30" font="font:SmallBoldSystemFont" color="#FFFFFF" text="Clear saved URL" />
+                </Group>
+            </Group>
+
+            <Label
+                id="help"
+                translation="[0,820]"
+                width="520"
+                height="120"
+                wrap="true"
+                font="font:SmallSystemFont"
+                color="#8FA3B8"
+                text="Up/Down: choose    OK: select&#10;*: show/hide menu    Back: stop" />
+        </Group>
+    </children>
+</component>

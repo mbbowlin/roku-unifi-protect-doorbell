@@ -1,0 +1,9 @@
+title=UniFi Protect Viewer
+subtitle=Live camera stream
+major_version=1
+minor_version=0
+build_version=00001
+ui_resolutions=fhd
+mm_icon_focus_fhd=pkg:/images/channel-icon_FHD.png
+mm_icon_focus_hd=pkg:/images/channel-icon_HD.png
+splash_color=#0B0F14
