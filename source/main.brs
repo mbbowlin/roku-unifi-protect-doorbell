@@ -5,6 +5,10 @@ sub Main()
 
     scene = screen.CreateScene("HomeScene")
     scene.ObserveField("exitRequested", port)
+    exitSignal = scene.findNode("exitSignal")
+    if exitSignal <> invalid
+        exitSignal.ObserveField("text", port)
+    end if
     screen.Show()
 
     while true
@@ -13,6 +17,9 @@ sub Main()
             if msg.IsScreenClosed() then return
         else if type(msg) = "roSGNodeEvent"
             if msg.GetField() = "exitRequested" and msg.GetData() = true
+                screen.Close()
+                return
+            else if msg.GetField() = "text" and msg.GetData() = "exit"
                 screen.Close()
                 return
             end if

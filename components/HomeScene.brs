@@ -8,6 +8,7 @@ sub init()
     m.urlValue = m.top.findNode("urlValue")
     m.help = m.top.findNode("help")
     m.exitTimer = m.top.findNode("exitTimer")
+    m.exitSignal = m.top.findNode("exitSignal")
     m.rowBgs = [
         m.top.findNode("row0Bg")
         m.top.findNode("row1Bg")
@@ -38,6 +39,11 @@ sub init()
 end sub
 
 sub onExitTimerFire()
+    m.status.text = "Exiting..."
+    m.details.text = "Closing doorbell view."
+    if m.exitSignal <> invalid
+        m.exitSignal.text = "exit"
+    end if
     m.video.control = "stop"
     m.top.exitRequested = true
     m.top.close = true

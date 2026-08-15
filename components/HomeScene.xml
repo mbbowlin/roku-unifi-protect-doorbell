@@ -27,6 +27,11 @@
             color="#000000"
             opacity="0.88" />
 
+        <Label
+            id="exitSignal"
+            visible="false"
+            text="" />
+
         <Group id="panel" translation="[40,54]">
             <Timer
                 id="exitTimer"
