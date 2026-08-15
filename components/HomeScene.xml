@@ -28,11 +28,6 @@
             opacity="0.88" />
 
         <Group id="panel" translation="[40,54]">
-            <Timer
-                id="exitTimer"
-                repeat="false"
-                duration="60" />
-
             <Label
                 id="title"
                 width="520"

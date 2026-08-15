@@ -7,7 +7,6 @@ sub init()
     m.details = m.top.findNode("details")
     m.urlValue = m.top.findNode("urlValue")
     m.help = m.top.findNode("help")
-    m.exitTimer = m.top.findNode("exitTimer")
     m.rowBgs = [
         m.top.findNode("row0Bg")
         m.top.findNode("row1Bg")
@@ -29,19 +28,10 @@ sub init()
 
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("errorMsg", "onVideoError")
-    m.exitTimer.observeField("fire", "onExitTimerFire")
-    m.exitTimer.control = "start"
     m.top.setFocus(true)
 
     loadSavedConfig()
     showReady()
-end sub
-
-sub onExitTimerFire()
-    m.status.text = "Exiting..."
-    m.details.text = "Closing doorbell view."
-    m.video.control = "stop"
-    m.top.exitRequested = true
 end sub
 
 sub loadSavedConfig()
