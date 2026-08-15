@@ -71,6 +71,8 @@ class UnifiRokuBridgeSensor(SensorEntity):
             "unifi_port": self.bridge.settings.port,
             "transcode": self.bridge.settings.transcode,
             "keep_audio": self.bridge.settings.keep_audio,
+            "segment_seconds": self.bridge.settings.segment_seconds,
+            "list_size": self.bridge.settings.list_size,
             "max_width": self.bridge.settings.max_width,
             "max_height": self.bridge.settings.max_height,
             "ffmpeg_bin": self.bridge.settings.ffmpeg_bin,

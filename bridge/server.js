@@ -8,8 +8,8 @@ const HOST = process.env.HOST || "0.0.0.0";
 const RTSPS_URL = process.env.UNIFI_RTSPS_URL;
 const FFMPEG_BIN = process.env.FFMPEG_BIN || "ffmpeg";
 const OUTPUT_DIR = process.env.HLS_OUTPUT_DIR || path.join("/tmp", "unifi-protect-roku-hls");
-const SEGMENT_SECONDS = String(Number(process.env.HLS_SEGMENT_SECONDS || 2));
-const LIST_SIZE = String(Number(process.env.HLS_LIST_SIZE || 6));
+const SEGMENT_SECONDS = String(Number(process.env.HLS_SEGMENT_SECONDS || 1));
+const LIST_SIZE = String(Number(process.env.HLS_LIST_SIZE || 3));
 const TRANSCODE = process.env.HLS_TRANSCODE === "1";
 const KEEP_AUDIO = process.env.HLS_KEEP_AUDIO !== "0";
 const VIDEO_MAX_WIDTH = String(Number(process.env.HLS_VIDEO_MAX_WIDTH || 1920));
@@ -62,7 +62,7 @@ function ffmpegArgs() {
       "-vf",
       `scale=w=min(${VIDEO_MAX_WIDTH}\\,iw):h=min(${VIDEO_MAX_HEIGHT}\\,ih):force_original_aspect_ratio=decrease:force_divisible_by=2`,
       "-g",
-      process.env.HLS_GOP_SIZE || "60",
+      process.env.HLS_GOP_SIZE || "30",
       "-sc_threshold",
       "0",
       "-force_key_frames",

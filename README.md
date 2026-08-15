@@ -32,8 +32,8 @@ PORT=8123
 HOST=0.0.0.0
 HLS_TRANSCODE=0
 HLS_KEEP_AUDIO=1
-HLS_SEGMENT_SECONDS=2
-HLS_LIST_SIZE=6
+HLS_SEGMENT_SECONDS=1
+HLS_LIST_SIZE=3
 HLS_VIDEO_MAX_WIDTH=1920
 HLS_VIDEO_MAX_HEIGHT=1080
 RTSP_TLS_VERIFY=0
@@ -139,7 +139,7 @@ ROKU_DEV_TARGET=YOUR_ROKU_IP ROKU_DEV_PASSWORD='YOUR_DEV_PASSWORD' make install
 
 - Keep the bridge on your trusted LAN. It exposes the live camera feed to any device that can reach the bridge URL.
 - UniFi camera streams are usually H.264, which can often be copied into HLS without transcoding. If the stream format is incompatible with your Roku model, use `HLS_TRANSCODE=1`.
-- Live HLS has latency. The default settings favor a short playlist, but expect a few seconds of delay.
+- Live HLS has latency. The default settings use 1-second segments and a 3-segment playlist to reduce delay, but Roku will still buffer a few seconds behind live.
 
 ## Troubleshooting
 

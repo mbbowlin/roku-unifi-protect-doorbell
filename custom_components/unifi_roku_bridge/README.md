@@ -32,6 +32,8 @@ Leave the default options unless playback fails. The defaults match the bridge s
 ```text
 Transcode: enabled
 Keep audio: enabled
+HLS segment seconds: 1
+HLS playlist segment count: 3
 Maximum video width: 1920
 Maximum video height: 1080
 Verify UniFi TLS certificate: disabled
