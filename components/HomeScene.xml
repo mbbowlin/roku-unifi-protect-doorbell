@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="HomeScene" extends="Scene">
     <interface>
-        <field id="exitRequested" type="boolean" alwaysNotify="true" />
+        <field id="exitRequested" type="bool" alwaysNotify="true" value="false" />
     </interface>
 
     <script type="text/brightscript" uri="pkg:/source/config.brs" />
@@ -26,11 +26,6 @@
             height="1080"
             color="#000000"
             opacity="0.88" />
-
-        <Label
-            id="exitSignal"
-            visible="false"
-            text="" />
 
         <Group id="panel" translation="[40,54]">
             <Timer
