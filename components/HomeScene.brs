@@ -39,6 +39,7 @@ end sub
 
 sub onExitTimerFire()
     m.video.control = "stop"
+    m.top.exitRequested = true
     m.top.close = true
 end sub
 
@@ -136,7 +137,7 @@ sub onVideoStateChange()
         m.status.text = "Playing live"
         m.overlay.visible = true
         m.panel.visible = true
-        m.details.text = "Doorbell camera is live. Auto-exits after 3 minutes."
+        m.details.text = "Doorbell camera is live. Auto-exits after 1 minute."
     else if state = "buffering"
         m.overlay.visible = true
         m.panel.visible = true
