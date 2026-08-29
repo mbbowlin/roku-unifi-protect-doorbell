@@ -124,6 +124,47 @@ Then restart Home Assistant and add:
 Settings > Devices & services > Add integration > UniFi Roku Bridge
 ```
 
+### Install or verify ffmpeg in Home Assistant
+
+The bridge starts `ffmpeg` from the Home Assistant host/container.
+
+For Home Assistant OS or the official Home Assistant Container, `ffmpeg` is already included. Leave the integration option **ffmpeg executable path** set to:
+
+```text
+ffmpeg
+```
+
+For Home Assistant Core or Supervised installs, install `ffmpeg` on the operating system that runs Home Assistant before configuring the integration.
+
+Debian or Ubuntu, including Home Assistant Supervised:
+
+```sh
+sudo apt update
+sudo apt install ffmpeg
+```
+
+Alpine, run as root:
+
+```sh
+apk add ffmpeg
+```
+
+macOS:
+
+```sh
+brew install ffmpeg
+```
+
+Then find the executable path:
+
+```sh
+which ffmpeg
+```
+
+Use that value in **Settings > Devices & services > UniFi Roku Bridge > Configure > ffmpeg executable path**. If `which ffmpeg` returns `/usr/bin/ffmpeg`, enter `/usr/bin/ffmpeg`. If it returns only `ffmpeg`, leave the field as `ffmpeg`.
+
+Do not install a separate Home Assistant app/add-on just to provide `ffmpeg` for this integration. Add-ons run separately and usually do not place their binaries on Home Assistant Core's PATH.
+
 For your stream, enter:
 
 ```text

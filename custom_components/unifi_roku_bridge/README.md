@@ -41,6 +41,53 @@ Maximum video height: 1080
 Verify UniFi TLS certificate: disabled
 ```
 
+### Install or verify ffmpeg
+
+The bridge starts `ffmpeg` from the Home Assistant host/container.
+
+For Home Assistant OS or the official Home Assistant Container, `ffmpeg` is already included. Leave **ffmpeg executable path** set to:
+
+```text
+ffmpeg
+```
+
+For Home Assistant Core or Supervised installs, install `ffmpeg` on the operating system that runs Home Assistant before configuring the integration.
+
+Debian or Ubuntu, including Home Assistant Supervised:
+
+```sh
+sudo apt update
+sudo apt install ffmpeg
+```
+
+Alpine, run as root:
+
+```sh
+apk add ffmpeg
+```
+
+macOS:
+
+```sh
+brew install ffmpeg
+```
+
+Then find the executable path:
+
+```sh
+which ffmpeg
+```
+
+Use that value in:
+
+```text
+Settings > Devices & services > UniFi Roku Bridge > Configure > ffmpeg executable path
+```
+
+If `which ffmpeg` returns `/usr/bin/ffmpeg`, enter `/usr/bin/ffmpeg`. If it returns only `ffmpeg`, leave the field as `ffmpeg`.
+
+Do not install a separate Home Assistant app/add-on just to provide `ffmpeg` for this integration. Add-ons run separately and usually do not place their binaries on Home Assistant Core's PATH.
+
 To update the UniFi Protect IP, stream token, SRTP flag, ffmpeg path, or transcoding settings later:
 
 ```text
@@ -83,4 +130,4 @@ Set that full URL in the Roku app's `source/config.brs`, repackage, and sideload
 
 ## ffmpeg
 
-The integration must be able to run `ffmpeg` from the Home Assistant host/container. If `ffmpeg` is not on the PATH, update the integration options and set the full executable path.
+The integration must be able to run `ffmpeg` from the Home Assistant host/container. If the bridge reports that `ffmpeg` cannot be found, confirm your Home Assistant installation type and update the integration option with the full executable path.
