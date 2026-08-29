@@ -4,6 +4,8 @@ This repo contains a sideloadable Roku SceneGraph channel and a local bridge for
 
 Roku does not play RTSP/RTSPS streams directly. The channel plays HLS, and the bridge uses `ffmpeg` to convert the UniFi Protect RTSPS stream into a live HLS playlist that Roku can consume.
 
+I struggled to find a workable solution to play RTSPS streams from a UniFi Protect video stream. All of the online options tell you to use the IP Camera Viewer app from the Roku library, but few people are able to make it work when you read the comments. This is a simple app that plays a single stream. If this is all you need, then this project should simplify getting this automation up and running.
+
 ## Requirements
 
 - A Roku device on the same LAN as your computer and Home Assistant host.
