@@ -6,7 +6,7 @@ Roku does not play RTSP/RTSPS streams directly. The channel plays HLS, and the b
 
 ## Requirements
 
-- A Roku device with Developer Mode enabled.
+- A Roku device on the same LAN as your computer and Home Assistant host.
 - For Home Assistant installation: a Home Assistant host that can run `ffmpeg`.
 - For Mac-only pre-install testing: Node.js 18 or newer and `ffmpeg` on your Mac.
 - A UniFi Protect RTSPS stream URL from your camera.
@@ -19,7 +19,16 @@ brew install ffmpeg
 
 ## Package and sideload the Roku channel
 
-Package the channel before trying to open or configure it on the Roku:
+First enable Developer Mode on the Roku so it can accept a sideloaded app:
+
+1. On the Roku remote, press **Home** three times, **Up** twice, then **Right**, **Left**, **Right**, **Left**, **Right**.
+2. Write down the Roku URL shown on the developer settings screen. It will look like `http://YOUR_ROKU_IP`.
+3. Select **Enable installer** or **Enable Developer Mode**.
+4. Read and accept the Developer Tools License Agreement.
+5. Create a Developer Mode password. You will use this with username `rokudev` when uploading the app.
+6. Let the Roku reboot.
+
+After the Roku reboots, package the channel before trying to open or configure it:
 
 ```sh
 make package
@@ -27,7 +36,7 @@ make package
 
 Install it through the Roku Developer Application Installer:
 
-1. Open `http://YOUR_ROKU_IP` in a browser.
+1. Open the Roku URL from the developer settings screen in a browser.
 2. Sign in with username `rokudev` and your Developer Mode password.
 3. Upload `unifi-protect-viewer.zip`.
 
