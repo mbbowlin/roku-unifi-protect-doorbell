@@ -17,6 +17,26 @@ On macOS with Homebrew, install `ffmpeg` before running the Mac test bridge:
 brew install ffmpeg
 ```
 
+## Package and sideload the Roku channel
+
+Package the channel before trying to open or configure it on the Roku:
+
+```sh
+make package
+```
+
+Install it through the Roku Developer Application Installer:
+
+1. Open `http://YOUR_ROKU_IP` in a browser.
+2. Sign in with username `rokudev` and your Developer Mode password.
+3. Upload `unifi-protect-viewer.zip`.
+
+Or install from the command line:
+
+```sh
+ROKU_DEV_TARGET=YOUR_ROKU_IP ROKU_DEV_PASSWORD='YOUR_DEV_PASSWORD' make install
+```
+
 ## Test the bridge on your Mac before Home Assistant
 
 This section is only for testing the Roku app and stream settings from your Mac before you install the Home Assistant integration. The temporary Node bridge is not required after the Home Assistant bridge is installed.
@@ -56,7 +76,7 @@ curl http://YOUR_COMPUTER_LAN_IP:8123/health
 curl http://YOUR_COMPUTER_LAN_IP:8123/live/stream.m3u8
 ```
 
-For this Mac test only, use this HLS URL in the Roku app:
+For this Mac test only, use this HLS URL in the sideloaded Roku app:
 
 ```text
 http://YOUR_COMPUTER_LAN_IP:8123/live/stream.m3u8
@@ -117,26 +137,6 @@ The integration creates a diagnostic sensor with a `short_hls_url` attribute. En
 
 ```text
 http://HOME_ASSISTANT_IP:8123/api/unifi_roku_bridge/live.m3u8
-```
-
-## Package and sideload
-
-Package the channel:
-
-```sh
-make package
-```
-
-Install it through the Roku Developer Application Installer:
-
-1. Open `http://YOUR_ROKU_IP` in a browser.
-2. Sign in with username `rokudev` and your Developer Mode password.
-3. Upload `unifi-protect-viewer.zip`.
-
-Or install from the command line:
-
-```sh
-ROKU_DEV_TARGET=YOUR_ROKU_IP ROKU_DEV_PASSWORD='YOUR_DEV_PASSWORD' make install
 ```
 
 ## Roku controls
