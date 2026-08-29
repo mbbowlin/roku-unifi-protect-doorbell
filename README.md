@@ -1,4 +1,4 @@
-# UniFi Protect Roku Viewer
+# UniFi Protect Roku Viewer with Home Assistant
 
 This repo contains a sideloadable Roku SceneGraph channel and a local bridge for playing a UniFi Protect `rtsps://` stream on Roku.
 
