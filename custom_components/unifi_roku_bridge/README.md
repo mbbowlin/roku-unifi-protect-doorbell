@@ -2,6 +2,8 @@
 
 This custom integration runs the RTSPS-to-HLS bridge inside Home Assistant and exposes an unauthenticated HLS URL for Roku.
 
+The Mac/Node bridge in the repo root README is only a temporary test harness for checking the Roku app and stream settings before installing this Home Assistant integration. Once this integration is installed, the Roku app should use the Home Assistant HLS URL from the sensor attributes.
+
 ## Install
 
 Copy this directory to Home Assistant:

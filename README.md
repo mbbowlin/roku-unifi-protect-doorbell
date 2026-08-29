@@ -7,17 +7,21 @@ Roku does not play RTSP/RTSPS streams directly. The channel plays HLS, and the b
 ## Requirements
 
 - A Roku device with Developer Mode enabled.
-- Node.js 18 or newer on a computer on the same LAN as the Roku.
-- `ffmpeg` installed on that computer.
+- For Home Assistant installation: a Home Assistant host that can run `ffmpeg`.
+- For Mac-only pre-install testing: Node.js 18 or newer and `ffmpeg` on your Mac.
 - A UniFi Protect RTSPS stream URL from your camera.
 
-On macOS with Homebrew:
+On macOS with Homebrew, install `ffmpeg` before running the Mac test bridge:
 
 ```sh
 brew install ffmpeg
 ```
 
-## Run the bridge
+## Test the bridge on your Mac before Home Assistant
+
+This section is only for testing the Roku app and stream settings from your Mac before you install the Home Assistant integration. The temporary Node bridge is not required after the Home Assistant bridge is installed.
+
+Use your Mac while it is on the same LAN as the Roku and UniFi Protect console.
 
 From this repo:
 
@@ -52,13 +56,21 @@ curl http://YOUR_COMPUTER_LAN_IP:8123/health
 curl http://YOUR_COMPUTER_LAN_IP:8123/live/stream.m3u8
 ```
 
+For this Mac test only, use this HLS URL in the Roku app:
+
+```text
+http://YOUR_COMPUTER_LAN_IP:8123/live/stream.m3u8
+```
+
+After you install the Home Assistant integration, replace the Roku URL with the Home Assistant URL shown in the integration sensor.
+
 ## Configure the Roku channel
 
 You can configure the HLS URL directly on the Roku after sideloading the app. The app shows a compact settings/status panel on the left and the video stream on the right. If a URL is already saved, it attempts playback as soon as the app starts.
 
 1. Open the app.
 2. Select **Edit HLS URL**.
-3. Enter the Home Assistant or bridge HLS URL ending in `stream.m3u8`.
+3. Enter the Home Assistant HLS URL ending in `stream.m3u8`. If you are still doing the Mac pre-install test, use the temporary Mac bridge URL instead.
 4. Select **Save**.
 5. The app will immediately try to play the saved stream.
 
@@ -74,7 +86,7 @@ Use your computer's LAN IP address, not `localhost`, because the Roku device mus
 
 ## Home Assistant integration
 
-This repo also includes a Home Assistant custom integration that can run the bridge inside Home Assistant instead of using the Node bridge:
+This is the intended installed bridge. The Mac/Node bridge above is only a temporary test before installing this Home Assistant custom integration.
 
 ```text
 custom_components/unifi_roku_bridge
